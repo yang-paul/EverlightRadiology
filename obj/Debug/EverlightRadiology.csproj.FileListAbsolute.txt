@@ -1,0 +1,5 @@
+D:\Projects\EverlightRadiology\EverlightRadiology\bin\Debug\EverlightRadiology.exe.config
+D:\Projects\EverlightRadiology\EverlightRadiology\bin\Debug\EverlightRadiology.exe
+D:\Projects\EverlightRadiology\EverlightRadiology\bin\Debug\EverlightRadiology.pdb
+D:\Projects\EverlightRadiology\EverlightRadiology\obj\Debug\EverlightRadiology.exe
+D:\Projects\EverlightRadiology\EverlightRadiology\obj\Debug\EverlightRadiology.pdb
