@@ -1,0 +1,11 @@
+1. Requirement analysis and research - 2 hours
+2. Solution design with OOP - 1 hour
+3. Create a console project and programming - 7 hours
+3.1 Coding GateSwitch class and interface with its open/close status - 0.5 hour
+3.2 Coding a binary tree and it can be created by a specific levels - 2 hours
+3.3 Initial tree node list by default (4) or parameter input - 0.5 hour
+3.4 Add enum extension to the project which used to assign random open/close status on each gate switch - 0.5 hour
+3.5 Add BallPasses() method to interface IGateSwitch and implement in class GateSwitch on action - 1 hour
+3.6 Add an function Predict() that shows which container in [A-P] will not receive a ball, where number of balls is total containers-1. - 1.5 hour
+3.7 Code optimisation, cleanup and fixes - 1 hour
+4. Evaluation and testing - 2 hour

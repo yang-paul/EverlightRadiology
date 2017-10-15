@@ -17,18 +17,20 @@ namespace EverlightRadiology
             if (args.Count() == 1)
                 numOfBalls = Convert.ToInt32(args[0]);
 
-            //create a tree nodes by defined tree levels
+            //create a tree nodes by defined depth of tree levels
             Console.WriteLine("Create a {0} levels binary tree.", treeLevels);
             List<TreeNode> list = CreateTreeNodeList(treeLevels);
 
             //ceate a tree by the node list
             Tree bst = new Tree(list);
 
-            //display the initial tree status
+            //display initial tree status
             bst.PrintLevelTraversal();
-            
+
+            var ary = bst.GetNodesByTreeLevel(4);
+
             //predict which container will not have a ball
-            Predict(treeLevels, list, bst);
+            Predict(treeLevels, bst);
 
             Console.WriteLine("");
             Console.WriteLine("Serve {0} balls in the game.", numOfBalls);
@@ -41,11 +43,12 @@ namespace EverlightRadiology
             //display the tree result after a set of balls served
             Console.WriteLine("Result:");
             bst.PrintLevelTraversal();
-            Console.WriteLine("- End -");
 
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
 
-        //You should first initialise your system passing in the depth of the system – in this case 4. Set the state of each gate switch randomly to left or right. 
+        //2. You should first initialise your system passing in the depth of the system – in this case 4. Set the state of each gate switch randomly to left or right. 
         static List<TreeNode> CreateTreeNodeList(int treeLevels)
         {
             List<TreeNode> list = new List<TreeNode>();
@@ -76,10 +79,10 @@ namespace EverlightRadiology
         }
 
         //3.1 Predict the answer to the solution i.e which container does not receive a ball.
-        static void Predict(int bottomLevel, List<TreeNode> list, Tree bst)
+        static void Predict(int bottomLevel, Tree bst)
         {
-            var bottomNodes = list.Where(x => x.Level == bottomLevel)
-                                  .OrderBy(x => x.Data.Id);
+            var bottomNodes = bst.GetNodesByTreeLevel(bottomLevel);
+
             int index = 0;
 
             if (bottomNodes.Any())
@@ -129,7 +132,7 @@ namespace EverlightRadiology
                     index = index + 2;
                 }
 
-                //left first container A
+                //left first container start with A
                 int charA = (int)'A';
                 Console.WriteLine("Predict container {0} will not receive a ball. [container range: {1}-{2}]", (char)(charA + paths.ToList().LastIndexOf(paths.Max())), "A", (char)(charA + paths.Length - 1));
             }

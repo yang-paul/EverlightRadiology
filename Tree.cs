@@ -143,6 +143,35 @@ namespace EverlightRadiology
             return child;
         }
 
+        public IEnumerable<TreeNode> GetNodesByTreeLevel(int level)
+        {
+            List<TreeNode> list = new List<TreeNode>();
+            if (root != null)
+            {
+                Queue<TreeNode> queue = new Queue<TreeNode>();
+
+                queue.Enqueue(root);
+
+                while (queue.Count > 0)
+                {
+                    TreeNode current = queue.Dequeue();
+                    //current.Data.DisplayData();
+
+                    if (current.Level == level)
+                    {
+                        list.Add(current);
+                    }
+                    else
+                    {
+                        if (current.Left != null) queue.Enqueue(current.Left);
+
+                        if (current.Right != null) queue.Enqueue(current.Right);
+                    }
+                }
+            }
+            return list;
+        }
+
         public bool Contains(TreeNode node, IGateSwitch data)
         {
             if (node == null) return false;
@@ -202,7 +231,7 @@ namespace EverlightRadiology
             {
                 TreeNode current = printQ.Dequeue();
 
-                Console.Write("{0} ", current.Data);
+                current.Data.DisplayData();
 
                 if (current.Left != null) printQ.Enqueue(current.Left);
 
@@ -298,7 +327,7 @@ namespace EverlightRadiology
         {
             if (root == null)
             {
-                throw new Exception("Binary true is null!");
+                throw new Exception("Binary tree is empty!");
             }
 
             Queue<TreeNode> queueNode = new Queue<TreeNode>();
